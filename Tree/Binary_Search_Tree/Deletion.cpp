@@ -18,12 +18,12 @@ Node* deleteNode(Node* root, int key) {
 		root->left = deleteNode(root->left, key);
 	}
 	// If the key to be deleted is greater than the root's key,
-  // then it lies in right subtree
+	// then it lies in right subtree
 	else if (key > root->key) {
 		root->right = deleteNode(root->right, key);
 	}
 	// if key is same as root's key, then This is the node
-  // to be deleted
+	// to be deleted
 	else {
 		// node with only one child or no child
 		if (!root->left) {

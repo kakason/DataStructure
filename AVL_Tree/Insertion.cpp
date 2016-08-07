@@ -91,11 +91,11 @@ Node* inSert(Node* root, int data) {
 
 	// Right Right Case
 	/*
-	        z                                      y
-	      /   \                                  /   \
-	     T1    y           Left Rotate(z)       z     x
-	          /  \         ---------->         / \   /  \
-           T2   x                          T1  T2  T3  T4
+	        z                                       y
+	      /   \                                  /    \
+	     T1    y           Left Rotate(z)       z      x
+	          /  \         ---------->         / \    /  \
+          T2    x                          T1   T2  T3  T4
                /  \
 	            T3   T4
 	*/
