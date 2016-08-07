@@ -76,14 +76,14 @@ Node* inSert(Node* root, int data) {
 
 	// Left Right Case
 	/*
-	           z                              z                               x
-		        / \                            / \                            /   \
-		       y  T4     Left Rotate(y)       x  T4     Right Rotate(z)      y     z
-		      / \         --------->         / \          -------->         / \   / \
-		     T1  x                          y  T3                         T1  T2 T3  T4
-		        / \                        / \
-		       T2 T3                      T1 T2
-    */
+	          z                              z                               x
+	         / \                            / \                            /   \
+	        y  T4     Left Rotate(y)       x  T4     Right Rotate(z)      y     z
+	       / \         --------->         / \          -------->         / \   / \
+	      T1  x                          y  T3                         T1  T2 T3  T4
+	         / \                        / \
+	        T2 T3                      T1 T2
+	*/
 	if (balance > 1 && data > root->left->data) {
 		root->left = leftRotate(root->left);
 		return rightRotate(root);
@@ -91,13 +91,13 @@ Node* inSert(Node* root, int data) {
 
 	// Right Right Case
 	/*
-	        z                                       y
-	      /   \                                  /    \
-	     T1    y           Left Rotate(z)       z      x
-	          /  \         ---------->         / \    /  \
-          T2    x                          T1   T2  T3  T4
-               /  \
-	            T3   T4
+	         z                                       y
+	       /   \                                  /    \
+	      T1    y           Left Rotate(z)       z      x
+	           /  \         ---------->         / \    /  \
+	         T2    x                          T1   T2  T3  T4
+	              /  \
+	             T3   T4
 	*/
 	if (balance < -1 && data > root->right->data) {
 		return leftRotate(root);
