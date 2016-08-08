@@ -53,7 +53,7 @@ void AVLTree::setRoot(int data) {
 
 Node* AVLTree::minValueNode(Node* node) {
 	Node* cur = node;
-	
+
 	while (cur->left)
 		cur = cur->left;
 
@@ -85,13 +85,13 @@ Node* AVLTree::insertNode(Node* node, int data) {
 
 	// Left Left Case
 	/*
-	                z                                    y
-			      /   \                                /   \
-		         y     T4      Right Rotate (z)       x     z
-		       /   \              --------->        /  \   /  \
-		      x     T3                             T1  T2 T3   T4
-	        /   \
-	      T1    T2
+	             z                                    y
+						 /   \                                /   \
+						y     T4      Right Rotate (z)       x     z
+					/   \              --------->        /  \   /  \
+				 x     T3                             T1  T2 T3   T4
+				/   \
+			 T1    T2
 	*/
 	if (balance > 1 && data < node->left->data) {
 		return rightRotate(node);
@@ -99,13 +99,13 @@ Node* AVLTree::insertNode(Node* node, int data) {
 
 	// Left Right Case
 	/*
-	           z                              z                               x
-			  / \                            / \                            /   \
-			 y  T4     Left Rotate(y)       x  T4     Right Rotate(z)      y     z
-			/ \         --------->         / \          -------->         / \   / \
-		   T1  x                          y  T3                         T1  T2 T3  T4
-		      / \                        / \
-			 T2 T3                      T1 T2
+	            z                              z                               x
+						 / \                            / \                            /   \
+						y  T4     Left Rotate(y)       x  T4     Right Rotate(z)      y     z
+					 / \         --------->         / \          -------->         / \   / \
+					T1  x                          y  T3                         T1  T2 T3  T4
+					   / \                        / \
+						T2 T3                      T1 T2
 	*/
 	else if (balance > 1 && data > node->left->data) {
 		node->left = leftRotate(node->left);
@@ -114,13 +114,13 @@ Node* AVLTree::insertNode(Node* node, int data) {
 
 	// Right Right Case
 	/*
-	                z                                       y
-				  /   \                                  /    \
+	          z                                       y
+					/   \                                  /    \
 				 T1    y           Left Rotate(z)       z      x
 				      /  \         ---------->         / \    /  \
-					T2    x                          T1   T2  T3  T4
-					     /  \
-						T3   T4
+						 T2   x                          T1   T2  T3  T4
+						     /  \
+								T3   T4
 	*/
 	if (balance < -1 && data > node->right->data) {
 		return leftRotate(node);
@@ -128,13 +128,13 @@ Node* AVLTree::insertNode(Node* node, int data) {
 
 	// Right Left Case
 	/*
-	             z                                 z                                x
-				/ \                               / \                             /   \
-			   T1  y       Right Rotate (y)      T1   x        Left Rotate(z)    z     y
-			      / \          --------->            /  \        -------->      / \   / \
-				 x   T4                             T2   y                    T1  T2 T3  T4
-				/ \                                     /  \
-			  T2   T3                                  T3   T4
+	            z                                 z                                x
+						 / \                               / \                             /   \
+						T1  y       Right Rotate (y)      T1   x        Left Rotate(z)    z     y
+						   / \          --------->            /  \        -------->      / \   / \
+							x   T4                             T2   y                    T1  T2 T3  T4
+						 / \                                     /  \
+					 T2   T3                                  T3   T4
 	*/
 	else if (balance < -1 && data < node->right->data) {
 		node->right = rightRotate(node->right);
@@ -149,7 +149,7 @@ Node* AVLTree::deleteNode(Node* node, int data) {
 	if (!node) {
 		return node;
 	}
-		
+
 	// If the key to be deleted is smaller than the root's key,
 	// then it lies in left subtree
 	if (data < node->data) {
@@ -190,7 +190,7 @@ Node* AVLTree::deleteNode(Node* node, int data) {
 	if (!node) {
 		return node;
 	}
-		
+
 	// STEP 2: UPDATE HEIGHT OF THE CURRENT NODE
 	node->ht = std::max(height(node->left), height(node->right)) + 1;
 
@@ -260,8 +260,9 @@ void AVLTree::releaseTree(Node* node) {
 }
 
 int AVLTree::getBalance(Node* node) {
-	if (!node)
+	if (!node) {
 		return 0;
+	}
 
 	return height(node->left) - height(node->right);
 }
@@ -270,6 +271,6 @@ int AVLTree::height(Node* node) {
 	if (!node) {
 		return -1;
 	}
-		
+
 	return node->ht;
 }
