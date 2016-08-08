@@ -2,12 +2,12 @@
 #ifndef intstack_h  // this is closed by the #endif at the end
 
 #define intstack_h // this is the class definition for intstack
-                   
+
 class intstack {
 private:
 	int thetop; // top of the stack
 	int *a; // array of elements (the stack)
-	int max; // maximum number of elements 
+	int max; // maximum number of elements
 
 public:
 	intstack::intstack() {}
