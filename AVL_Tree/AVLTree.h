@@ -4,29 +4,29 @@
 
 class AVLTree{
 private:
-	Node* root;
+  Node* root;
 
-	Node* newNode(int);
-	Node* minValueNode(Node*);
-	Node* insertNode(Node*, int);
-	Node* deleteNode(Node*, int);
-	Node* leftRotate(Node*);
-	Node* rightRotate(Node*);
+  Node* newNode(int);
+  Node* minValueNode(Node*);
+  Node* insertNode(Node*, int);
+  Node* deleteNode(Node*, int);
+  Node* leftRotate(Node*);
+  Node* rightRotate(Node*);
 
-	void setRoot(int);
-	void releaseTree(Node*);
-	void preOrder(Node*);
+  void setRoot(int);
+  void releaseTree(Node*);
+  void preOrder(Node*);
 
-	int getBalance(Node*);
-	int height(Node*);
+  int getBalance(Node*);
+  int height(Node*);
 
 public:
-	AVLTree();
-	~AVLTree();
+  AVLTree();
+  ~AVLTree();
 
-	void insertion(int);
-	void deletion(int);
-	void print();
+  void insertion(int);
+  void deletion(int);
+  void print();
 
 };
 
