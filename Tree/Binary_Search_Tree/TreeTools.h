@@ -2,10 +2,10 @@
 #define TREETOOLS_H
 
 struct Node {
-	int data;
-	int count;
-	Node* left;
-	Node* right;
+    int data;
+    int count;
+    Node* left;
+    Node* right;
 };
 
 #endif
