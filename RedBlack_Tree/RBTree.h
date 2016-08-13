@@ -4,12 +4,12 @@
 
 class RBTree {
 private:
-	Node* root;
+    Node* root;
 
-	Node* insertNode(Node*, Node*);
-	Node* leftRotate(Node*);
-	Node* rightRotate(Node*);
-	Node* newNode(int);
+    Node* insertNode(Node*, Node*);
+    Node* leftRotate(Node*);
+    Node* rightRotate(Node*);
+    Node* newNode(int);
 
     void insertFix(Node*);
     void inOrder(Node*);
@@ -17,8 +17,8 @@ private:
     void releaseTree(Node*);
 
 public:
-	RBTree();
-	~RBTree();
+    RBTree();
+    ~RBTree();
 
     void insertion(int);
     void printOrder();

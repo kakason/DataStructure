@@ -43,13 +43,13 @@ Node* RBTree::leftRotate(Node* g) {
 
     g->right = p->left;
     // more check
-    if (g->right) { 
+    if (g->right) {
         g->right->parent = g;
     }
 
     p->parent = g->parent;
     // more check
-    if (!g->parent) { 
+    if (!g->parent) {
         root = p;
     }
     else if (g == g->parent->left) {
@@ -115,7 +115,7 @@ void RBTree::insertFix(Node* x) {
         p = x->parent;
         g = p->parent;
 
-        /* Case A: 
+        /* Case A:
            Parent of x is left child of Grand-parent of x */
         if (p == g->left) {
             Node* u = g->right;
@@ -198,7 +198,7 @@ void RBTree::levelOrder(Node* node){
         if (cur->left) {
             q.push(cur->left);
         }
-        
+
         if (cur->right) {
             q.push(cur->right);
         }
@@ -220,4 +220,3 @@ RBTree::RBTree() {
 RBTree::~RBTree() {
     releaseTree(root);
 }
-

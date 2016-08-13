@@ -2,11 +2,11 @@
 #define TREETOOLS_H
 
 struct Node {
-	int data;
-	char color;
-	Node* left;
-	Node* right;
-	Node* parent;
+    int data;
+    char color;
+    Node* left;
+    Node* right;
+    Node* parent;
 };
 
 #endif
