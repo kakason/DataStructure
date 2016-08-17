@@ -3,10 +3,12 @@
 
 struct Node {
     int data;
-    char color;
+    int color;
     Node* left;
     Node* right;
     Node* parent;
 };
+
+enum Color { RED, BLACK };
 
 #endif
