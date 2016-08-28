@@ -25,7 +25,7 @@ int BinomialHeap::getMin() {
     while (nex) {
         if (nex->key < min->key )
             min = nex;
-        
+
         nex = nex->sibling;
     }
 
@@ -73,11 +73,15 @@ void BinomialHeap::extractMin() {
 
 void BinomialHeap::decreaseKey(int key, int newkey) {
     Node* target = search(key);
-    decreaseNode(target, newkey);
+
+    if (target)
+        decreaseNode(target, newkey);
+    else
+        std::cout << key << " doesn't exist\n";
 }
 
-// Reduces the specified node¡¦s key and then bubbles 
-// it up through its ancestors until the tree meets 
+// Reduces the specified nodeï¿½ï¿½s key and then bubbles
+// it up through its ancestors until the tree meets
 // the conditions of a heap.
 void BinomialHeap::decreaseNode(Node* cur, int newKey) {
     cur->key = newKey;
@@ -127,14 +131,14 @@ Node* BinomialHeap::unionTree(Node* newHead) {
 
     while (nex) {
         /* Case 1: Order of cur and nex are not same, we simply move ahead */
-        /* Case 2: Order of cur and nex are same and 
+        /* Case 2: Order of cur and nex are same and
                    order of nex->sibling is also same, move ahead */
         if (cur->degree != nex->degree ||
             (nex->sibling && nex->sibling->degree == cur->degree)) {
             pre = cur;
             cur = nex;
         }
-        
+
         /* Case 3: If key of cur is greater than or equal to key
                    of nex, make nex as a child of cur */
         else if (cur->key <= nex->key) {
@@ -160,7 +164,7 @@ Node* BinomialHeap::unionTree(Node* newHead) {
     return newHead;
 }
 
-// Merge the two heaps together by continually linking trees of 
+// Merge the two heaps together by continually linking trees of
 // the same order until no two trees of the same order exist
 Node* BinomialHeap::mergeTree(Node* oldHead, Node* newHead) {
     if (!oldHead)
@@ -204,7 +208,7 @@ Node* BinomialHeap::mergeTree(Node* oldHead, Node* newHead) {
             tail->sibling = newHeadNext;
 
         return tmpHead;
-    } 
+    }
 }
 
 Node* BinomialHeap::newNode(int key) {
@@ -221,7 +225,7 @@ Node* BinomialHeap::newNode(int key) {
 // Breadth first search
 Node* BinomialHeap::search(int key) {
     /*
-    Special Case: 
+    Special Case:
     Binomial heap is empty and you still
     want to delete something
     */
@@ -278,7 +282,7 @@ void BinomialHeap::removeTreeRoot(Node* cur) {
 
 void BinomialHeap::insertNode(Node* tmpNode) {
     //BinomialHeap tmpHeap(tmpNode);
-    
+
     Node* newHead = mergeTree(head, tmpNode);
     head = unionTree(newHead);
 }
@@ -306,4 +310,3 @@ void BinomialHeap::deleteNode(Node* cur) {
 
     removeTreeRoot(cur);
 }
-
