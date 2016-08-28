@@ -80,7 +80,7 @@ void BinomialHeap::decreaseKey(int key, int newkey) {
         std::cout << key << " doesn't exist\n";
 }
 
-// Reduces the specified node��s key and then bubbles
+// Reduces the specified node's key and then bubbles
 // it up through its ancestors until the tree meets
 // the conditions of a heap.
 void BinomialHeap::decreaseNode(Node* cur, int newKey) {
