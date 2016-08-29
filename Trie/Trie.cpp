@@ -105,8 +105,8 @@ bool Trie::insertNoPrefix(std::string key) {
             return false;
         }
         // Case 2-B:
-        // e.g. Keys which have already existed {"a", "ade"} and
-        //      we want to insert{"ab"}
+        // e.g. Keys which have already existed {"aa", "ade"} and
+        //      we want to insert{"aab"}
         else if (cur->children[index] && cur->children[index]->isLeaf) {
             return false;
         }
